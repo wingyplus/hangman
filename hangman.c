@@ -5,10 +5,12 @@ HMState hm_current_state = HMState_Empty;
 static char word[100];
 
 static HMState next_state(HMState state) {
-  if (state == HMState_Empty) {
-    return HMState_DrawBase;
+  switch(state) {
+    case HMState_Empty: return HMState_DrawBase;
+    case HMState_DrawBase: return HMState_DrawHead;
+    default:
+      return HMState_DrawBody;
   }
-  return HMState_DrawHead;
 }
 
 void hm_set_word(const char *w) {

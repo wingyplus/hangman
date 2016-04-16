@@ -1,7 +1,12 @@
 #ifndef LIBHANGMAN_H_
 #define LIBHANGMAN_H_
 
-typedef enum { HMState_Empty, HMState_DrawBase, HMState_DrawHead } HMState;
+typedef enum {
+  HMState_Empty,
+  HMState_DrawBase,
+  HMState_DrawHead,
+  HMState_DrawBody
+} HMState;
 
 extern HMState hm_current_state;
 
