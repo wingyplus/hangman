@@ -12,8 +12,10 @@ static HMState next_state(HMState state) {
     return HMState_DrawHead;
   case HMState_DrawHead:
     return HMState_DrawBody;
-  default:
+  case HMState_DrawBody:
     return HMState_DrawRightHand;
+  default:
+    return HMState_DrawLeftHand;
   }
 }
 
