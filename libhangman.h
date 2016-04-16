@@ -5,7 +5,8 @@ typedef enum {
   HMState_Empty,
   HMState_DrawBase,
   HMState_DrawHead,
-  HMState_DrawBody
+  HMState_DrawBody,
+  HMState_DrawRightHand
 } HMState;
 
 extern HMState hm_current_state;
