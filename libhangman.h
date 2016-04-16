@@ -7,7 +7,8 @@ typedef enum {
   HMState_DrawHead,
   HMState_DrawBody,
   HMState_DrawRightHand,
-  HMState_DrawLeftHand
+  HMState_DrawLeftHand,
+  HMState_DrawRightLeg
 } HMState;
 
 extern HMState hm_current_state;
