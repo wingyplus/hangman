@@ -1,0 +1,10 @@
+libs
+build
+
+# emacs cache
+*~
+.#*
+\#*
+
+# valgrind report
+*.dSYM
