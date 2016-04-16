@@ -1,14 +1,14 @@
 #include <string.h>
 #include "libhangman.h"
 
-enum HM_STATE hm_current_state = HM_STATE_EMPTY;
+HMState hm_current_state = HMState_Empty;
 static char word[100];
 
-static enum HM_STATE next_state(enum HM_STATE state) {
-  if (state == HM_STATE_EMPTY) {
-    return HM_STATE_DRAW_BASE;
+static HMState next_state(HMState state) {
+  if (state == HMState_Empty) {
+    return HMState_DrawBase;
   }
-  return HM_STATE_DRAW_HEAD;
+  return HMState_DrawHead;
 }
 
 void hm_set_word(const char *w) {
