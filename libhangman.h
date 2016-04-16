@@ -9,11 +9,11 @@ typedef enum {
   HMState_DrawRightHand,
   HMState_DrawLeftHand,
   HMState_DrawRightLeg,
-  HMState_DrawLeftLeg
+  HMState_DrawLeftLeg,
+  HMState_GameOver
 } HMState;
 
 extern HMState hm_current_state;
-
 void hm_set_word(const char *);
 void hm_guess_character(const char);
 
