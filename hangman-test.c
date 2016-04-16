@@ -69,6 +69,15 @@ TEST(hangman, it_should_draw_right_leg_after_draw_left_hand) {
   EXPECT_INT_EQ(hm_current_state, HMState_DrawRightLeg);
 }
 
+TEST(hangman, it_should_draw_left_leg_after_draw_right_leg) {
+  hm_current_state = HMState_DrawRightLeg;
+
+  hm_set_word("HANGMAN");
+  hm_guess_character('B');
+
+  EXPECT_INT_EQ(hm_current_state, HMState_DrawLeftLeg);
+}
+
 START_RUN_TESTS {
   TEST_ENTRY(hangman, it_should_begin_with_empty_state)
   TEST_ENTRY(hangman, it_should_draw_base_when_select_miss_character)
@@ -79,5 +88,6 @@ START_RUN_TESTS {
   TEST_ENTRY(hangman, it_should_draw_right_hand_after_draw_body)
   TEST_ENTRY(hangman, it_should_draw_left_hand_after_draw_body)
   TEST_ENTRY(hangman, it_should_draw_right_leg_after_draw_left_hand)
+  TEST_ENTRY(hangman, it_should_draw_left_leg_after_draw_right_leg)
 }
 END_RUN_TESTS
