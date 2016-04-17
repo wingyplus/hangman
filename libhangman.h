@@ -14,7 +14,9 @@ typedef enum {
 } HMState;
 
 extern HMState hm_current_state;
+
 void hm_set_word(const char *);
 void hm_guess_character(const char);
+char * hm_display_word();
 
 #endif // LIBHANGMAN_H_

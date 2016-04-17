@@ -5,6 +5,11 @@ TEST(hangman, it_should_begin_with_empty_state) {
   EXPECT_INT_EQ(hm_current_state, HMState_Empty);
 }
 
+TEST(hangman, it_should_set_empty_display_word_with_all_underscore_character) {
+  hm_set_word("HANGMAN");
+  EXPECT_STR_EQ(hm_display_word(), "_______");
+}
+
 TEST(hangman, it_should_draw_base_when_select_miss_character) {
   hm_current_state = HMState_Empty;
 
@@ -99,5 +104,7 @@ START_RUN_TESTS {
   TEST_ENTRY(hangman, it_should_draw_right_leg_after_draw_left_hand)
   TEST_ENTRY(hangman, it_should_draw_left_leg_after_draw_right_leg)
   TEST_ENTRY(hangman, it_should_game_over_after_draw_left_leg)
+  TEST_ENTRY(hangman,
+             it_should_set_empty_display_word_with_all_underscore_character)
 }
 END_RUN_TESTS

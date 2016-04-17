@@ -4,6 +4,7 @@
 
 HMState hm_current_state = HMState_Empty;
 static char word[100];
+static char _display_word[100];
 
 static HMState next_state(HMState state) {
   switch (state) {
@@ -26,10 +27,22 @@ static HMState next_state(HMState state) {
   }
 }
 
-void hm_set_word(const char *w) { strlcpy(word, w, sizeof(word)); }
+void hm_set_word(const char *w) {
+  int i;
+
+  strlcpy(word, w, sizeof(word));
+  for (i = 0; i < strlen(w); i++) {
+    _display_word[i] = '_';
+  }
+  _display_word[i] = '\0';
+}
 
 void hm_guess_character(const char ch) {
   if (strchr(word, ch) == NULL) {
     hm_current_state = next_state(hm_current_state);
   }
+}
+
+char * hm_display_word() {
+  return _display_word;
 }
