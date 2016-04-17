@@ -92,6 +92,21 @@ TEST(hangman, it_should_draw_left_leg_after_draw_right_leg) {
   EXPECT_INT_EQ(hm_current_state, HMState_GameOver);
 }
 
+TEST(hangman, display_word_it_should_show_correct_guess) {
+  hm_current_state = HMState_Empty;
+
+  hm_set_word("HANGMAN");
+
+  hm_guess_character('H');
+  EXPECT_STR_EQ(hm_display_word(), "H______");
+
+  hm_guess_character('M');
+  EXPECT_STR_EQ(hm_display_word(), "H___M__");
+
+  hm_guess_character('A');
+  EXPECT_STR_EQ(hm_display_word(), "HA__MA_");
+}
+
 START_RUN_TESTS {
   TEST_ENTRY(hangman, it_should_begin_with_empty_state)
   TEST_ENTRY(hangman, it_should_draw_base_when_select_miss_character)
@@ -106,5 +121,6 @@ START_RUN_TESTS {
   TEST_ENTRY(hangman, it_should_game_over_after_draw_left_leg)
   TEST_ENTRY(hangman,
              it_should_set_empty_display_word_with_all_underscore_character)
+  TEST_ENTRY(hangman, display_word_it_should_show_correct_guess)
 }
 END_RUN_TESTS

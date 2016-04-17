@@ -38,7 +38,15 @@ void hm_set_word(const char *w) {
 }
 
 void hm_guess_character(const char ch) {
-  if (strchr(word, ch) == NULL) {
+  int i = 0, found = 0;
+
+  for (i = 0; i < strlen(word); i++) {
+    if (ch == word[i]) {
+      _display_word[i] = ch;
+      found = 1;
+    }
+  }
+  if (!found) {
     hm_current_state = next_state(hm_current_state);
   }
 }
